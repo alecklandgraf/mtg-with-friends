@@ -1,23 +1,37 @@
-import React from 'react';
+import  React, {useState} from 'react';
+import shuffle from 'lodash/shuffle';
 import logo from './logo.svg';
+import ezuri from './ezuri.json'
 import './App.css';
 
+// TODO: add missing lands
+
+const commander = ezuri.find(card => card.name === 'Ezuri, Claw of Progress')
+const commanderDeck = ezuri.filter(card => card.name !== 'Ezuri, Claw of Progress')
+
 function App() {
+  const [deck, setDeck] = useState(shuffle(commanderDeck));
+  const [handSize, setHandSize] = useState(7);
+  
+  const cards = []
+  for (let i=0; i< handSize; i++) {
+    cards.push(deck[i])
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {commander && <div>
+          <img src={commander.normal_image_uri} alt={commander.oracle_text} height="200" />
+        </div>}
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Let's play some magic
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          {cards.map(card => <img key={card.name} src={card.normal_image_uri} alt={card.oracle_text} height="200" />
+          )}
+          
+        </div>
       </header>
     </div>
   );
