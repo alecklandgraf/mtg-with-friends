@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import shuffle from "lodash/shuffle";
-import logo from "./logo.svg";
 import Card from "./Card";
 import ezuri from "./ezuri.json";
 import "./App.css";
@@ -24,13 +23,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div className="Library">
         {commander && (
           <div>
             <Card card={commander} />
           </div>
         )}
-        <p>Let's play some magic</p>
-        <div>
+        </div>
+        <div className="Hand">
           {cards.map(card => (
             <Card key={card.name} card={card} />
           ))}
