@@ -31,15 +31,16 @@
 .Library {
   grid-column-start: 1;
   grid-column-end: span 1;
-  grid-row-start: 6;
+  grid-row-start: 4;
   grid-row-end: 5;
   border: red 1px solid;
+  display: flex;
 }
 
 .Command {
   grid-column-start: 1;
   grid-column-end: span 1;
-  grid-row-start: 5;
+  grid-row-start: 3;
   grid-row-end: 4;
   border: cadetblue 1px solid;
 }

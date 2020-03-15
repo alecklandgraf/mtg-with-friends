@@ -29,9 +29,8 @@ function App() {
         )}
         </div>
         <div className="Library">
-          <div>
             <CardBack />
-          </div>
+        <div className="LibraryCount">{deck.length}</div>
         </div>
         <div className="Hand">
           {cards.map(card => (
