@@ -4,8 +4,8 @@
   margin: 3px;
   transition: transform .2s; 
 }
-
+/* 
 .Card:hover {
   height: 200px;
   transform: scale(1.5);
-}
+} */

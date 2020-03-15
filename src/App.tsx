@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import shuffle from "lodash/shuffle";
-import Card from "./Card";
+import Card, { CardBack } from "./Card";
 import ezuri from "./ezuri.json";
 import "./App.css";
 
@@ -23,12 +23,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="Library">
+        <div className="Command">
         {commander && (
-          <div>
             <Card card={commander} />
-          </div>
         )}
+        </div>
+        <div className="Library">
+          <div>
+            <CardBack />
+          </div>
         </div>
         <div className="Hand">
           {cards.map(card => (

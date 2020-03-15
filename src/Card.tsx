@@ -1,5 +1,6 @@
 import React from "react";
 import './Card.css';
+import cardBack from "./card_back.jpg"
 
 // const card = {
 //   name: "Acidic Slime",
@@ -25,7 +26,10 @@ export type card = {
 
 export type CardProps = {
   card: card;
+}
 
+export function CardBack() {
+  return <img src={cardBack} alt="Back of MTG card" className="Card" />
 }
 
 export default function Card({ card }: CardProps) {

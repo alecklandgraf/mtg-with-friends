@@ -27,12 +27,21 @@
   grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
+/* Zones */
 .Library {
   grid-column-start: 1;
   grid-column-end: span 1;
   grid-row-start: 6;
   grid-row-end: 5;
   border: red 1px solid;
+}
+
+.Command {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 5;
+  grid-row-end: 4;
+  border: cadetblue 1px solid;
 }
 
 .Hand {
@@ -43,15 +52,3 @@
   border: blue 1px solid;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
