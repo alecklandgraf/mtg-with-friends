@@ -1,44 +1,27 @@
-import React, { useState } from "react";
-import shuffle from "lodash/shuffle";
-import Card, { CardBack } from "./Card";
-import ezuri from "./ezuri.json";
-import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-// TODO: add missing lands
-
-const commander = ezuri.find(card => card.name === "Ezuri, Claw of Progress");
-const commanderDeck = ezuri.filter(
-  card => card.name !== "Ezuri, Claw of Progress"
-);
+import Game from './Game'
+import Home from './Home'
 
 function App() {
-  const [deck, setDeck] = useState(shuffle(commanderDeck));
-  const [handSize, setHandSize] = useState(7);
-
-  const cards = [];
-  for (let i = 0; i < handSize; i++) {
-    cards.push(deck[i]);
-  }
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="Command">
-        {commander && (
-            <Card card={commander} />
-        )}
-        </div>
-        <div className="Library">
-            <CardBack />
-        <div className="LibraryCount">{deck.length}</div>
-        </div>
-        <div className="Hand">
-          {cards.map(card => (
-            <Card key={card.name} card={card} />
-          ))}
-        </div>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/game">
+            <Game />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
